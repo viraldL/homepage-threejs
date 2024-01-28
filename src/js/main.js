@@ -36,12 +36,21 @@ renderer.toneMappingExposure = 0.5;
 
 camera.position.set(0, 0, 10)
 
+const preloader = document.querySelector("#loader");
+const hide = document.querySelector("#hide");
+
 const loader = new RGBELoader();
 loader.load(hdr, (texture) => {
     texture.mapping = THREE.EquirectangularReflectionMapping;
-
-
+    
+    
     scene.environment = texture;
+
+    preloader.classList.add("hideMe");
+    hide.style.visibility = "visible";
+    setTimeout(() => {
+        preloader.style.display = "none";
+    }, 500)
     // scene.background = texture;
 })
 

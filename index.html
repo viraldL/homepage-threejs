@@ -7,15 +7,44 @@
     <title>Vite App</title>
   </head>
   <body>
-    <canvas id="bg"></canvas>
-    <div id="noise"></div>
-    <h1>WELCOME</h1>
-    <section></section>
-    <section></section>
-    <section></section>
-    <section></section>
-    <section></section>
-    <section></section>
-    <script type="module" src="src/js/main.js"></script>
+    <div id="loader" rel="preload"> 
+      <span class="loader"></span>
+    </div>
+    <span id="hide" style="visibility: hidden;">
+      <canvas id="bg"></canvas>
+      <div id="noise"></div>
+      <h1>WELCOME</h1>
+      <div class="me">im viraldl</div>
+      <div class="arrow"><a href="#scroll1">
+        <div>&#129047;</div>
+      </a></div>
+      <section class="fill"></section>
+      <section id="scroll1" class="about">
+        <h2>About me <span>&#129044;</span></h2>
+        <p>I am passionate about creating websites. I have experience working with technologies
+          such as HTML, CSS, and JavaScript by creating my own simple projects. I believe that
+          web development is a fascinating blend of creativity and technology.</p>
+      </section>
+      <section class="fill2"></section>
+      <section class="tech">
+        <div class="techBox">Technologies I use:</div>
+        <div class="techList">
+          <img src="logos/HTML5_logo_and_wordmark.svg.png" alt="HTML" >
+          <img src="logos/css-logo.png" alt="CSS" srcset="">
+          <img src="logos/JavaScript-logo.png" alt="JavaScript" srcset="">
+          <img id="sass" src="logos/1280px-Sass_Logo_Color.svg.png" alt="SASS" srcset="">
+          <img id="npm" src="logos/2560px-Npm-logo.svg.png" alt="NPM" srcset="">
+          <img src="logos/vite-logo.png" alt="ViteJS" srcset="">
+          <img src="logos/Git-Icon-1788C.png" alt="ViteJS" srcset="">
+        </div>
+      </section>
+      <section class="fill2"></section>    <section></section>
+      <footer>
+        <span>mail: tomsob2207@gmail.com</span>
+        <span>viraldL 2024&copy;</span>
+        <span><a href="https://github.com/viraldL">github: viraldL</a></span>
+      </footer>
+    </span>
+    <script type="module" src="src/js/main.js" defer></script>
   </body>
 </html>
