@@ -156,6 +156,12 @@ scrollClick.addEventListener("click", () => {
 
 });
 
+const toTop = document.querySelector("#toTop");
+
+toTop.addEventListener("click", () => {
+    me.scrollIntoView({block: "center"});
+})
+
 window.addEventListener("scroll", () => {
     console.log(scrollFoot.getBoundingClientRect())
     if(scrollAbout.getBoundingClientRect().top > -400 && scrollAbout.getBoundingClientRect().top < 400) {
@@ -173,7 +179,7 @@ window.addEventListener("scroll", () => {
             scrollClick.classList.remove("hideMe")
         }
         currentSect = 0;
-    } else if (scrollFoot.getBoundingClientRect().top === 835.1875) {
+    } else if (scrollFoot.getBoundingClientRect().top > 749) {
         if(scrollClick.classList.contains("hideMe")){
             scrollClick.classList.remove("hideMe")
         }
@@ -184,6 +190,6 @@ window.addEventListener("scroll", () => {
         scrollClick.classList.add("hideMe")
     }
 
-    console.log(currentSect);
+    console.log(scrollFoot.getBoundingClientRect().top);
 });
 

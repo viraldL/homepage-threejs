@@ -19,6 +19,7 @@ canvas {
 body {
     background-color: black;
     margin: 0;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -74,7 +75,7 @@ h1 {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    left: 0;
+    left: 2em;
     right: 0;
     gap: 10px;
     .clickHere {
@@ -146,7 +147,7 @@ section {
     .techBox {
         color: #664b4b;
         font-weight: 800;
-        font-size: 3rem;
+        font-size: 2rem;
         display: flex;
         align-items: center;
         justify-content: center; 
@@ -247,4 +248,17 @@ footer {
         100% {
             opacity: 1;
         }
+  }
+  
+  #toTop {
+    display: flex;
+    justify-content: center;
+    color: #664b4b;
+    font-weight: 800;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    mix-blend-mode: difference;
+    cursor: pointer;
+    position: relative;
+    left: 3.25em;
   }
