@@ -132,3 +132,58 @@ window.addEventListener('resize', function() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+const scrollClick = document.querySelector("#scrollClick");
+
+const scrollAbout = document.querySelector("#scroll1");
+const scrollTech = document.querySelector("#scroll2");
+const scrollFoot = document.querySelector("#scroll3");
+const me = document.querySelector(".me");
+let currentSect = 0;
+
+scrollClick.addEventListener("click", () => {
+    if(currentSect === 0) {
+        scrollAbout.scrollIntoView({block: "center"});
+    }
+
+    if(currentSect === 1) {
+        scrollTech.scrollIntoView({block: "center"});
+    }
+
+    if(currentSect === 2) {
+        scrollFoot.scrollIntoView({block: "end"});
+        
+    }
+
+});
+
+window.addEventListener("scroll", () => {
+    console.log(scrollFoot.getBoundingClientRect())
+    if(scrollAbout.getBoundingClientRect().top > -400 && scrollAbout.getBoundingClientRect().top < 400) {
+        if(scrollClick.classList.contains("hideMe")){
+            scrollClick.classList.remove("hideMe")
+        }
+        currentSect = 1;
+    } else if (scrollTech.getBoundingClientRect().top > 0 && scrollTech.getBoundingClientRect().top < 400) {
+        if(scrollClick.classList.contains("hideMe")){
+            scrollClick.classList.remove("hideMe")
+        }
+        currentSect = 2;
+    } else if (me.getBoundingClientRect().top > 0 && me.getBoundingClientRect().top < 400) {
+        if(scrollClick.classList.contains("hideMe")){
+            scrollClick.classList.remove("hideMe")
+        }
+        currentSect = 0;
+    } else if (scrollFoot.getBoundingClientRect().top === 835.1875) {
+        if(scrollClick.classList.contains("hideMe")){
+            scrollClick.classList.remove("hideMe")
+        }
+        currentSect = 3;
+    }
+
+    if(currentSect === 3) {
+        scrollClick.classList.add("hideMe")
+    }
+
+    console.log(currentSect);
+});
+
