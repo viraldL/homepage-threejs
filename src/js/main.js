@@ -156,14 +156,33 @@ scrollClick.addEventListener("click", () => {
 
 });
 
+scrollClick.addEventListener("mouseover", () => {
+    cursor.style.width = "75px";
+    cursor.style.height = "75px";
+})
+
+scrollClick.addEventListener("mouseout", () => {
+    cursor.style.width = "45px";
+    cursor.style.height = "45px";
+})
+
 const toTop = document.querySelector("#toTop");
 
 toTop.addEventListener("click", () => {
     me.scrollIntoView({block: "center"});
 })
 
+toTop.addEventListener("mouseover", () => {
+    cursor.style.width = "75px";
+    cursor.style.height = "75px";
+})
+
+toTop.addEventListener("mouseout", () => {
+    cursor.style.width = "45px";
+    cursor.style.height = "45px";
+})
+
 window.addEventListener("scroll", () => {
-    console.log(scrollFoot.getBoundingClientRect())
     if(scrollAbout.getBoundingClientRect().top > -400 && scrollAbout.getBoundingClientRect().top < 400) {
         if(scrollClick.classList.contains("hideMe")){
             scrollClick.classList.remove("hideMe")
@@ -189,7 +208,16 @@ window.addEventListener("scroll", () => {
     if(currentSect === 3) {
         scrollClick.classList.add("hideMe")
     }
-
-    console.log(scrollFoot.getBoundingClientRect().top);
 });
+
+const cursor = document.querySelector("#cursor");
+
+window.addEventListener("mousemove", (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    cursor.style.left = `${posX}px`;
+    cursor.style.top = `${posY}px`;
+})
+  
 
