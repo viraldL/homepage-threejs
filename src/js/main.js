@@ -115,16 +115,32 @@ animate();
 
 const tl = gsap.timeline();
 
-
 tl.to(sphere.position, {
-    scrollTrigger: {
-        target: 'body',
-        scrub: true
-    },
+    ease: "power1.inOut",
     z: -15,
     y: 4,
     x: 5
-});
+}).to(sphere.position, {
+    ease: "power1.inOut",
+    z: 0,
+    y: 0,
+    x: 0
+}).to(sphere.position, {
+    ease: "power1.inOut",
+    z: 2,
+    y: 3,
+    x: 0
+})
+
+ScrollTrigger.create({
+    animation: tl,
+    target: "body",
+    scrub: true,
+    pin: true,
+    anticipatePin: 1
+})
+
+
 
 window.addEventListener('resize', function() {
     camera.aspect = window.innerWidth / window.innerHeight;
