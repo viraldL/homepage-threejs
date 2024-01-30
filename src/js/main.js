@@ -1,5 +1,7 @@
 import "../scss/style.scss";
 
+import noise from './noise.gif';
+
 import * as THREE from 'three';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
@@ -9,13 +11,15 @@ import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 import { HalftonePass } from 'three/addons/postprocessing/HalftonePass.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger} from 'gsap/ScrollTrigger';
+import displaceMap from './DisplacementMap.png';
+
 
 
 gsap.registerPlugin(ScrollTrigger);
 const hdr = new URL('./studio_small_07_4k.hdr', import.meta.url)
 
 const txtLoader = new THREE.TextureLoader();
-const displace = txtLoader.load('../src/js/DisplacementMap.png')
+const displace = txtLoader.load(displaceMap)
 
 const scene = new THREE.Scene()
 
