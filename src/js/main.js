@@ -51,6 +51,7 @@ loader.load(hdr, (texture) => {
     setTimeout(() => {
         preloader.style.display = "none";
     }, 500)
+    gsapAnim();
     // scene.background = texture;
 })
 
@@ -113,6 +114,8 @@ function animate() {
 
 animate();
 
+
+//sphere animation
 const tl = gsap.timeline();
 
 tl.to(sphere.position, {
@@ -148,6 +151,8 @@ window.addEventListener('resize', function() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+
+
 const scrollClick = document.querySelector("#scrollClick");
 
 const scrollAbout = document.querySelector("#scroll1");
@@ -172,30 +177,40 @@ scrollClick.addEventListener("click", () => {
 
 });
 
-scrollClick.addEventListener("mouseover", () => {
-    cursor.style.width = "75px";
-    cursor.style.height = "75px";
-})
 
-scrollClick.addEventListener("mouseout", () => {
-    cursor.style.width = "45px";
-    cursor.style.height = "45px";
-})
+//cursor func.
+const cursor = document.querySelector("#cursor");
 
 const toTop = document.querySelector("#toTop");
+const githubPage = document.querySelector("#githubPage");
 
-toTop.addEventListener("click", () => {
-    me.scrollIntoView({block: "center"});
-})
 
-toTop.addEventListener("mouseover", () => {
+function scaleCursorUp() {
     cursor.style.width = "75px";
     cursor.style.height = "75px";
-})
+}
 
-toTop.addEventListener("mouseout", () => {
+function scaleCursorDown() {
     cursor.style.width = "45px";
     cursor.style.height = "45px";
+}
+
+scrollClick.addEventListener("mouseover", scaleCursorUp)
+
+scrollClick.addEventListener("mouseout", scaleCursorDown)
+
+toTop.addEventListener("mouseover", scaleCursorUp)
+
+toTop.addEventListener("mouseout", scaleCursorDown)
+
+githubPage.addEventListener("mouseover", scaleCursorUp)
+
+githubPage.addEventListener("mouseout", scaleCursorDown)
+
+
+//scroll func.
+toTop.addEventListener("click", () => {
+    me.scrollIntoView({block: "center"});
 })
 
 window.addEventListener("scroll", () => {
@@ -226,8 +241,6 @@ window.addEventListener("scroll", () => {
     }
 });
 
-const cursor = document.querySelector("#cursor");
-
 window.addEventListener("mousemove", (e) => {
     const posX = e.clientX;
     const posY = e.clientY;
@@ -235,5 +248,38 @@ window.addEventListener("mousemove", (e) => {
     cursor.style.left = `${posX}px`;
     cursor.style.top = `${posY}px`;
 })
+
+//gsap animation
+
+const gsapAnim = function() {
+    gsap.from("h1", {duration: 1,opacity: 0, y: 30, scrollTrigger:{
+        trigger: ".me",
+        toggleActions: "play reset play reset"
+    }});
+    gsap.from(".me", {delay: 0.3, duration: 1,opacity: 0, y: 30, scrollTrigger:{
+        trigger: ".me",
+        toggleActions: "play reset play reset"
+    }});
+    gsap.from(".about h2", {duration: 1,opacity: 0, y: 30, scrollTrigger:{
+        trigger: ".about",
+        toggleActions: "play reset play reset"
+    }});
+    gsap.from(".about p", {delay: 0.3, duration: 1,opacity: 0, y: 30, scrollTrigger:{
+        trigger: ".about",
+        toggleActions: "play reset play reset"
+    }});
+    gsap.from(".techBox", {duration: 1,opacity: 0, y: 30, scrollTrigger:{
+        trigger: ".tech",
+        toggleActions: "play reset play reset"
+    }});
+    gsap.from(".techList img", {duration: 1,opacity: 0, y: 30, stagger: 0.2, scrollTrigger:{
+        trigger: ".tech",
+        toggleActions: "play reset play reset"
+    }});
+    gsap.from("footer span ", {duration: 1,opacity: 0, y: 30, stagger: 0.2, scrollTrigger:{
+        trigger: "footer",
+        toggleActions: "play reset play reset"
+    }});
+}
   
 

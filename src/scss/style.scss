@@ -160,7 +160,7 @@ section {
     border-radius: 10px;
     padding: 2em;
     .techBox {
-        color: #664b4b;
+        color: #312424;
         font-weight: 800;
         font-size: 2rem;
         display: flex;
@@ -193,18 +193,18 @@ footer {
     a {
         color: #664b4b;
         text-decoration: none;
+        cursor: none;
     }
     width: 100%;
     height: 100px;
     z-index: 9999;
-    background-color: #000000;
+    background-color: transparent;
     color: #664b4b;
     display: flex;
     align-items: center;
     justify-content: space-around;
     position: relative;
     left: -3.25em;
-    z-index: -1;
 }
 
 #loader {
